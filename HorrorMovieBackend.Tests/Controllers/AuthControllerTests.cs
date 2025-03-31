@@ -66,6 +66,7 @@ namespace HorrorMovieBackend.Tests.Controllers
         [Fact]
         public async Task RegisterUser_RegistersUser()
         {
+            // Create new user to register
             var newUser = new User
             {
                 Id = 3,
@@ -73,11 +74,14 @@ namespace HorrorMovieBackend.Tests.Controllers
                 Password = "newuserpw"
             };
 
+            // Register user
             var result = await _controller.Register(newUser);
 
+            // Check registration successful
             var okResult = Assert.IsType<OkObjectResult>(result);
             Assert.Equal("User registered successfully", okResult.Value);
 
+            // Check information accurate
             var registeredUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username == "newUser");
             Assert.NotNull(registeredUser);
             Assert.Equal("newUser", registeredUser.Username);
@@ -87,6 +91,7 @@ namespace HorrorMovieBackend.Tests.Controllers
         [Fact]
         public async Task LoginUser_InvalidPassword_ReturnsUnauthorized()
         {
+            // Create user with invalid credentials
             var loginUser = new User
             {
                 Id = 1,
@@ -94,7 +99,10 @@ namespace HorrorMovieBackend.Tests.Controllers
                 Password = "testuserpw2"
             };
 
+            // Call the login method
             var result = await _controller.Login(loginUser);
+
+            // Verify unauthorized repsonse
             var rejectedResult = Assert.IsType<UnauthorizedObjectResult>(result);
             Assert.Equal("Invalid username or password", rejectedResult.Value);
         }
@@ -102,7 +110,7 @@ namespace HorrorMovieBackend.Tests.Controllers
         [Fact]
         public async Task LoginUser_ValidCredentials_GeneratesToken()
         {
-            // Arrange: Create a user with valid credentials
+            // Create a user with valid credentials
             var loginUser = new User
             {
                 Id = 1,
@@ -110,13 +118,13 @@ namespace HorrorMovieBackend.Tests.Controllers
                 Password = "testuserpw1" // This should match the password in SeedDatabase
             };
 
-            // Act: Call the login method
+            // Call the login method
             var result = await _controller.Login(loginUser);
 
-            // Assert: Check that the result is of type OkObjectResult
+            // Check that the result is of type OkObjectResult
             var okResult = Assert.IsType<OkObjectResult>(result);
 
-            // Assert: Ensure the result is a TokenResponse type (strongly typed)
+            // Ensure the result is a TokenResponse type
             var response = Assert.IsType<TokenResponse>(okResult.Value);
 
             Assert.NotNull(response);

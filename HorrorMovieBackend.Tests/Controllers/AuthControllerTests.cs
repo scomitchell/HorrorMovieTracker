@@ -49,14 +49,14 @@ namespace HorrorMovieBackend.Tests.Controllers
                 {
                     Id = 1,
                     Username = "testuser1",
-                    Password = "testuserpw1"
+                    Password = BCrypt.Net.BCrypt.HashPassword("testuserpw1")
                 });
 
                 _dbContext.Add(new User
                 {
                     Id = 2,
                     Username = "testUser2",
-                    Password = "testuserpw2"
+                    Password = BCrypt.Net.BCrypt.HashPassword("testuserpw2")
                 });
 
                 _dbContext.SaveChanges();
@@ -83,24 +83,45 @@ namespace HorrorMovieBackend.Tests.Controllers
             Assert.Equal("newUser", registeredUser.Username);
         }
 
+
         [Fact]
-        public async Task LoginUser_ValidCredentials_GeneratesToken()
+        public async Task LoginUser_InvalidPassword_ReturnsUnauthorized()
         {
             var loginUser = new User
             {
                 Id = 1,
                 Username = "testuser1",
-                Password = "testuserpw1"
+                Password = "testuserpw2"
             };
 
             var result = await _controller.Login(loginUser);
+            var rejectedResult = Assert.IsType<UnauthorizedObjectResult>(result);
+            Assert.Equal("Invalid username or password", rejectedResult.Value);
+        }
 
+        [Fact]
+        public async Task LoginUser_ValidCredentials_GeneratesToken()
+        {
+            // Arrange: Create a user with valid credentials
+            var loginUser = new User
+            {
+                Id = 1,
+                Username = "testuser1",
+                Password = "testuserpw1" // This should match the password in SeedDatabase
+            };
+
+            // Act: Call the login method
+            var result = await _controller.Login(loginUser);
+
+            // Assert: Check that the result is of type OkObjectResult
             var okResult = Assert.IsType<OkObjectResult>(result);
-            var response = okResult.Value as dynamic;
+
+            // Assert: Ensure the result is a TokenResponse type (strongly typed)
+            var response = Assert.IsType<TokenResponse>(okResult.Value);
 
             Assert.NotNull(response);
             Assert.NotNull(response.Token);
-            Assert.IsType<string>(response.Token);
+            Assert.IsType<string>(response.Token);  // Ensure it's a string
         }
     }
 }

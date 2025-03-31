@@ -1,13 +1,8 @@
-using Xunit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HorrorMovieBackend.Controllers;
 using HorrorMovieBackend.Models;
 using HorrorMovieBackend.Data;
-using System.Linq;
-using System.Collections.Generic;
-using System;
-using System.Reflection;
 
 namespace HorrorMovieBackend.Tests.Controllers
 {

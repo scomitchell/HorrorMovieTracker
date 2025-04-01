@@ -18,6 +18,20 @@ namespace HorrorMovieBackend.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Movie>>> GetMovies()
+        {
+            var movies = await _context.Movies.ToListAsync();
+
+            if (movies == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(movies);
+        }
+
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)
         {

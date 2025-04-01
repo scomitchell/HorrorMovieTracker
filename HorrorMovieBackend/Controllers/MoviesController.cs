@@ -11,46 +11,72 @@ namespace HorrorMovieBackend.Controllers
 
     public class MoviesController : ControllerBase
     {
-        private readonly MovieService _movieService;
+        private readonly ApplicationDbContext _context;
 
-        public MoviesController(MovieService movieService)
+        public MoviesController(ApplicationDbContext context)
         {
-            _movieService = movieService;
+            _context = context;
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)
         {
-            var movie = await _movieService.GetMovieByID(id);
+            var movie = await _context.Movies.FindAsync(id);
+
             if (movie == null)
             {
                 return NotFound();
             }
 
-            return Ok(movie);
+            return movie;
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMovie(int id, [FromBody] Movie movie)
+        public async Task<IActionResult> PutMovie(int id, Movie movie)
         {
-            var updatedMovie = await _movieService.updateMovieAsync(id, movie);
-            if (updatedMovie != null)
+            if (id != movie.Id)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            return Ok(updatedMovie);
+            _context.Entry(movie).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!MovieExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
 
+        private bool MovieExists(int id)
+        {
+            return _context.Movies.Any(e => e.Id == id);
+        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMovie(int id)
         {
-            var result = await _movieService.deleteMovieAsync(id);
-            if (!result)
+            var movie = await _context.Movies.FindAsync(id);
+
+            if (movie == null)
             {
                 return NotFound();
             }
+
+            _context.Movies.Remove(movie);
+            await _context.SaveChangesAsync();
 
             return NoContent();
         }

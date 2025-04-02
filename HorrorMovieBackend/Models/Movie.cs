@@ -14,5 +14,7 @@ namespace HorrorMovieBackend.Models
         public string Subgenre { get; set; } = string.Empty;
 
         public DateTime ReleaseDate { get; set; }
+
+        private List<UserMovie> UserMovies { get; set; } = new();
     }
 }

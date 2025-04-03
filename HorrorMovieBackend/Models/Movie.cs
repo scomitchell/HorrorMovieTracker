@@ -15,6 +15,6 @@ namespace HorrorMovieBackend.Models
 
         public DateTime ReleaseDate { get; set; }
 
-        private List<UserMovie> UserMovies { get; set; } = new();
+        public List<UserMovie> UserMovies { get; set; } = new();
     }
 }

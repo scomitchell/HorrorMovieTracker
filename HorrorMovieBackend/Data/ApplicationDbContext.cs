@@ -15,6 +15,10 @@ namespace HorrorMovieBackend.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Composite key to prevent duplciate user-movie entriee
+            modelBuilder.Entity<UserMovie>()
+                .HasKey(um => new { um.UserId, um.MovieId });
+
             modelBuilder.Entity<UserMovie>()
                 .HasOne(um => um.User)
                 .WithMany(u => u.UserMovies)

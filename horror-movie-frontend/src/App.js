@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import RecentReleases from "./pages/RecentReleases"
 import Login from "./components/Login"
 import Registration from "./components/Registration"
+import MovieForm from "./components/MovieForm"
 import { Routes, Route } from "react-router-dom"
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/recentreleases" element={<RecentReleases />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/Register" element={<Registration />} />
+                <Route path="/AddMovie" element={<MovieForm />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </div>

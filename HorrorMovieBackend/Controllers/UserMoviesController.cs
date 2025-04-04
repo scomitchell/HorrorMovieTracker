@@ -20,7 +20,8 @@ namespace HorrorMovieBackend.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        
+        [HttpGet("my-movies")]
         public async Task<IActionResult> GetMovies()
         {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
@@ -40,6 +41,7 @@ namespace HorrorMovieBackend.Controllers
             return Ok(userMovies);
         }
 
+    
         [HttpPost]
         public async Task<IActionResult> AddMovieToUserList([FromBody] Movie movie)
         {

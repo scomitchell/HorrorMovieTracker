@@ -36,7 +36,10 @@ namespace HorrorMovieBackend.Controllers
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
-            return Ok("User registered successfully");
+
+            var token = _authService.GenerateToken(user);
+            var response = new TokenResponse { Token = token };
+            return Ok(response);
         }
 
         [HttpPost("login")]

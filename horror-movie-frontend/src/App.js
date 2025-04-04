@@ -1,12 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-import Home from './pages/Home';
-import Movies from './pages/Movies';
+import logo from './logo.svg'
+import './App.css'
+import Home from './pages/Home'
+import Movies from './pages/Movies'
 import MoviePage from './pages/MoviePage'
 import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar'
 import RecentReleases from "./pages/RecentReleases"
-import { Routes, Route } from "react-router-dom";
+import Login from "./components/Login"
+import Registration from "./components/Registration"
+import { Routes, Route } from "react-router-dom"
 
 function App() {
     return (
@@ -16,7 +18,9 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/movies" element={<Movies />} />
                 <Route path="/movies/:id" element={<MoviePage />} />
-                <Route path="/recentreleases" element={<RecentReleases/>} />
+                <Route path="/recentreleases" element={<RecentReleases />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/Register" element={<Registration />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </div>

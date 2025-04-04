@@ -1,0 +1,29 @@
+nav {
+    display: flex;
+    justify-content: flex-start; /* Align links to the left */
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style-type: none; /* Remove default list bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Arrange the list items horizontally */
+}
+
+nav li {
+    margin-right: 20px; /* Add space between each link */
+}
+
+nav a {
+    text-decoration: none; /* Remove underlines */
+    color: white;
+    font-size: 16px;
+    padding: 8px 12px;
+}
+
+nav a:hover {
+    background-color: #575757;
+    border-radius: 5px; /* Round corners */
+}

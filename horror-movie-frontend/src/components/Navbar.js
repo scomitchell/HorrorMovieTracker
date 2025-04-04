@@ -11,6 +11,9 @@ function Navbar() {
                 <li>
                     <Link to="/movies">Movies</Link>
                 </li>
+                <li>
+                    <Link to="/recentreleases">Recent Releases</Link>
+                </li>
             </ul>
         </nav>
     );

@@ -36,7 +36,7 @@ namespace HorrorMovieBackend.Controllers
                     um.Movie.ReleaseDate
                 })
                 .ToListAsync();
-
+            
             return Ok(userMovies);
         }
 

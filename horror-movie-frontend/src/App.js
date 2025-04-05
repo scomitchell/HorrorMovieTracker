@@ -9,6 +9,7 @@ import RecentReleases from "./pages/RecentReleases"
 import Login from "./components/Login"
 import Registration from "./components/Registration"
 import MovieForm from "./components/MovieForm"
+import MyMovies from "./pages/MyMovies"
 import { Routes, Route } from "react-router-dom"
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/Register" element={<Registration />} />
                 <Route path="/AddMovie" element={<MovieForm />} />
+                <Route path="/my-movies" element={<MyMovies />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </div>

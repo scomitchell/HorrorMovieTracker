@@ -23,12 +23,17 @@ const Login = () => {
             }
 
             const data = await response.json();
+
             localStorage.setItem("token", data.token);
             navigate("/my-movies");
         } catch (error) {
             setError(error.message);
         }
     };
+
+    if (localStorage.getItem("token")) {
+        return <h1>You are already logged in</h1>
+    }
 
     return (
         <div>

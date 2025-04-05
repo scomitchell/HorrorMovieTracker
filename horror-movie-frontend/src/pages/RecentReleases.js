@@ -47,7 +47,7 @@ const RecentReleasesPage = () => {
                 <ul>
                     {movies.map((movie) => (
                         <li key={movie.id}>
-                            {movie.title} – {new Date(movie.releaseDate).toLocaleDateString()}
+                            {movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})
                         </li>
                     ))}
                 </ul>

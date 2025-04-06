@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import "../styles/MovieForm.css"
 
 const MovieForm = () => {
     const [title, setTitle] = useState("");

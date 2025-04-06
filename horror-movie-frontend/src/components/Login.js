@@ -1,11 +1,13 @@
-import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const { login, isLoggedIn } = useContext(AuthContext);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -23,16 +25,15 @@ const Login = () => {
             }
 
             const data = await response.json();
-
-            localStorage.setItem("token", data.token);
+            login(data.token);
             navigate("/my-movies");
         } catch (error) {
             setError(error.message);
         }
     };
 
-    if (localStorage.getItem("token")) {
-        return <h1>You are already logged in</h1>
+    if (isLoggedIn) {
+        return <h1>You are already logged in</h1>;
     }
 
     return (
@@ -47,7 +48,7 @@ const Login = () => {
                     required
                 />
                 <input
-                    type="text"
+                    type="password"
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../styles/RecentReleases.css"
 
 const RecentReleasesPage = () => {
     const [movies, setMovies] = useState([]);

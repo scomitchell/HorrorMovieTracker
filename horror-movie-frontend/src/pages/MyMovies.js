@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import "../styles/MyMovies.css"
 
 const MyMoviesPage = () => {
     const [movies, setMovies] = useState([]);

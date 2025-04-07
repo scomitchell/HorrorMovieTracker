@@ -18,14 +18,26 @@ nav li {
 
 nav a {
     text-decoration: none; /* Remove underlines */
-    color: white;
     font-size: 20px;
     padding: 8px 12px;
     color: #ff0000;
     font-weight: bold;
 }
 
+nav ul li button {
+    background-color: #000000;
+    color: #ff0000;
+    font-size: 20px;
+    font-weight: bold;
+    border: 0px;
+}
+
 nav a:hover {
     background-color: #575757;
     border-radius: 5px; /* Round corners */
+}
+
+nav ul li button:hover {
+    background-color: #575757;
+    border-radius: 5px;
 }

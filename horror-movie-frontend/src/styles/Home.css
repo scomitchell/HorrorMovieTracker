@@ -13,3 +13,9 @@ body {
     gap: 20px;
     margin-left: -25px;
 }
+
+.movie-poster {
+    width: 100px;
+    height: 200px;
+    border-radius: 8px;
+}

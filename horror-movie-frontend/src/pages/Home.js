@@ -53,7 +53,12 @@ const Home = () => {
                                 <img
                                     src={movie.imageUrl}
                                     alt={`${movie.title} Poster`}
-                                    style={{ width: '200px', borderRadius: '8px' }}
+                                    style={{
+                                        width: '200px',
+                                        height: '300px',  // Ensure fixed height
+                                        borderRadius: '8px',
+                                        objectFit: 'cover',  // Maintain aspect ratio, cover the area
+                                    }}
                                 />
                             </Link>
                         )}

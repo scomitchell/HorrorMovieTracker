@@ -1,48 +1,75 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
+import "../styles/Search.css";
 
 const MoviesPage = () => {
-    const [movies, setMovies] = useState([]); // Initialize as an empty array
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [allMovies, setAllMovies] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [message, setMessage] = useState("");
 
     useEffect(() => {
-        const fetchMovies = async () => {
+        const fetchAllMovies = async () => {
             try {
                 const response = await fetch("http://localhost:5004/api/movies");
                 if (!response.ok) {
                     throw new Error("Failed to fetch movies");
                 }
+
                 const data = await response.json();
-                setMovies(data); // Update the state with fetched data
+                setAllMovies(data);
             } catch (error) {
-                setError(error.message); // If there's an error, set the error state
-            } finally {
-                setLoading(false); // Set loading to false after the request completes
+                console.error(error);
             }
         };
 
-        fetchMovies();
+        fetchAllMovies();
     }, []);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    const handleAddToMyList = async (movie) => {
+        try {
+            const response = await fetch("http://localhost:5004/api/usermovies", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+                body: JSON.stringify(movie),
+            });
 
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
+            const result = await response.text();
 
-    if (movies.length === 0) {
-        return <div>No movies found.</div>;
-    }
+            if (!response.ok) {
+                throw new Error(result);
+            }
+
+            setMessage(result);
+        } catch (error) {
+            setMessage(error.message);
+        }
+    };
+
+    const filteredMovies = allMovies.filter((movie) =>
+        movie.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
         <div>
-            <h1>Movies</h1>
+            <h1>Search Movies</h1>
+            <input
+                type="text"
+                placeholder="Search by title"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+
+            {message && <p>{message}</p>}
+
             <ul>
-                {movies.map((movie) => (
+                {filteredMovies.map((movie) => (
                     <li key={movie.id}>
-                        <h3>{movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})</h3>
+                        <h3>{movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})
+                            <button onClick={() => handleAddToMyList(movie)} style={{ marginLeft: '10px' }}>
+                                Add to My List
+                            </button>
+                        </h3>
                         {movie.imageUrl && (
                             <img src={movie.imageUrl} alt={`${movie.title} Poster`} style={{ width: "150px", borderRadius: "8px" }} />
                         )}

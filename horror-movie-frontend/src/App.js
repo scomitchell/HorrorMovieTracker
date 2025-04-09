@@ -10,7 +10,6 @@ import Registration from "./components/Registration";
 import MovieForm from "./components/MovieForm";
 import MyMovies from "./pages/MyMovies";
 import NotFound from "./pages/NotFound";
-import MovieSearch from "./pages/MovieSearch";
 import { AuthProvider } from "./context/AuthContext";
 
 function App() {
@@ -25,7 +24,6 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Registration />} />
                 <Route path="/addmovie" element={<MovieForm />} />
-                <Route path="/searchmovies" element={<MovieSearch />} />
                 <Route path="/my-movies" element={<MyMovies />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>

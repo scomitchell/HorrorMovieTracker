@@ -7,3 +7,14 @@
 .my-movies h1 {
     margin-left: 20px;
 }
+
+.my-movies ul li h3 button {
+    margin-left: 5px;
+    color: #ff0000;
+    background-color: #000000;
+    border: 1px solid #ff0000;
+}
+
+.my-movies ul li h3 button:hover {
+    background-color: #575757;
+}

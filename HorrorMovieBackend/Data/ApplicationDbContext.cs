@@ -15,7 +15,7 @@ namespace HorrorMovieBackend.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Composite key to prevent duplciate user-movie entriee
+            // Composite key to prevent duplicate user-movie entries
             modelBuilder.Entity<UserMovie>()
                 .HasKey(um => new { um.UserId, um.MovieId });
 
@@ -27,7 +27,8 @@ namespace HorrorMovieBackend.Data
             modelBuilder.Entity<UserMovie>()
                 .HasOne(um => um.Movie)
                 .WithMany(u => u.UserMovies)
-                .HasForeignKey(um => um.MovieId);
+                .HasForeignKey(um => um.MovieId)
+                .OnDelete(DeleteBehavior.Restrict);  // Prevent cascading delete for movies
         }
     }
 }

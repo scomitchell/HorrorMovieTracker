@@ -29,7 +29,28 @@ const MyMoviesPage = () => {
         };
 
         fetchMyMovies();
-    }, [])
+    }, []);
+
+    const handleRemoveFromMyList = async (movieId) => {
+        try {
+            const response = await fetch(`http://localhost:5004/api/usermovies/${movieId}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+            });
+
+            if (response.ok) {
+                setMovies(movies.filter((movie) => movie.id !== movieId));
+                console.log("Movie removed from your list");
+            } else {
+                console.log("Error removing movie from list");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
 
     if (loading) {
         return <p>Loading...</p>;
@@ -49,7 +70,15 @@ const MyMoviesPage = () => {
             <ul>
                 {movies.map((movie) => (
                     <li key={movie.id}>
-                        <h3>{movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})</h3>
+                        <h3>
+                            {movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})
+                            <button
+                                onClick={() => handleRemoveFromMyList(movie.id)}
+                                className="remove-button"
+                            >
+                                Remove
+                            </button>
+                        </h3>
                         {movie.imageUrl && (
                             <img src={movie.imageUrl} alt={`${movie.title} Poster`} style={{ width: "150px", borderRadius: "8px" }} />
                         )}

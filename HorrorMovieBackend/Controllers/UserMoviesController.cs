@@ -49,7 +49,8 @@ namespace HorrorMovieBackend.Controllers
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             // Check if movie exists in the database and add it if it doesn't
-            var existingMovie = await _context.Movies.FirstOrDefaultAsync(m => m.Title == movie.Title);
+            var existingMovie = await _context.Movies.FirstOrDefaultAsync(m => m.Title == movie.Title
+            && m.ReleaseDate.Date == movie.ReleaseDate.Date);
             if (existingMovie == null)
             {
                 existingMovie = new Movie

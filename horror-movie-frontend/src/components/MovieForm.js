@@ -40,36 +40,39 @@ const MovieForm = () => {
     };
 
     return (
-        <form onSubmit={handleAddMovie}>
-            <input
-                type="text"
-                placeholder="title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-            />
-            <input
-                type="text"
-                placeholder="subgenre"
-                value={subgenre}
-                onChange={(e) => setSubgenre(e.target.value)}
-                required
-            />
-            <input
-                type="date"
-                value={releaseDate}
-                onChange={(e) => setReleaseDate(e.target.value)}
-                required
-            />
-            <input
-                type="text"
-                placeholder="Image URL"
-                value={imageUrl}
-                onChange={(e) => setImageUrl(e.target.value)}
-            />
-            <button type="submit">Add Movie</button>
-            {error && <p>{error}</p>}
-        </form>
+        <div class="movie-form">
+            <h2>Add a movie to the database</h2>
+            <form onSubmit={handleAddMovie}>
+                <input
+                    type="text"
+                    placeholder="title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                />
+                <input
+                    type="text"
+                    placeholder="subgenre"
+                    value={subgenre}
+                    onChange={(e) => setSubgenre(e.target.value)}
+                    required
+                />
+                <input
+                    type="date"
+                    value={releaseDate}
+                    onChange={(e) => setReleaseDate(e.target.value)}
+                    required
+                />
+                <input
+                    type="text"
+                    placeholder="Image URL"
+                    value={imageUrl}
+                    onChange={(e) => setImageUrl(e.target.value)}
+                />
+                <button type="submit">Add Movie</button>
+                {error && <p>{error}</p>}
+            </form>
+        </div>
     );
 };
 

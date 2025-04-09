@@ -15,14 +15,14 @@ const RecentReleasesPage = () => {
                 }
                 const data = await response.json();
 
-                // Get one month ago
-                const oneMonthAgo = new Date();
-                oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+                // Get one year ago
+                const oneYearAgo = new Date();
+                oneYearAgo.setYear(oneYearAgo.getFullYear() - 1);
 
                 // Filter movies
                 const recentMovies = data.filter(movie => {
                     const releaseDate = new Date(movie.releaseDate);
-                    return releaseDate >= oneMonthAgo;
+                    return releaseDate >= oneYearAgo;
                 });
 
                 setMovies(recentMovies);
@@ -41,7 +41,7 @@ const RecentReleasesPage = () => {
 
     return (
         <div class="recent-releases">
-            <h2>Recent Releases (Past Month)</h2>
+            <h2>Recent Releases (Past Year)</h2>
             {movies.length === 0 ? (
                 <p>No movies released in the past month.</p>
             ) : (

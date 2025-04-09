@@ -1,0 +1,37 @@
+.movies-container h1 {
+    margin-left: 20px;
+    font-size: 25px
+}
+
+.movies-container input {
+    margin-left: 15px;
+    font-size: 16px;
+    background-color: #000000;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+.movies-container ul {
+    list-style-type: none;
+}
+
+.movies-container input::placeholder {
+    color: #ff0000;
+    opacity: 1;
+}
+
+.movies-container ul li {
+    margin-left: -20px;
+}
+
+.movies-container ul li button {
+    color: #ff0000;
+    background-color: #000000;
+    border: 1px solid #ff0000;
+}
+
+.movies-container ul li h3 button:hover {
+    background-color: #575757;
+}

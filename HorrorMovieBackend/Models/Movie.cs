@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using System.Reflection;
 
 namespace HorrorMovieBackend.Models
 {
@@ -15,5 +14,9 @@ namespace HorrorMovieBackend.Models
         public string Subgenre { get; set; } = string.Empty;
 
         public DateTime ReleaseDate { get; set; }
+
+        public List<UserMovie> UserMovies { get; set; } = new();
+
+        public string? ImageUrl { get; set; }
     }
 }

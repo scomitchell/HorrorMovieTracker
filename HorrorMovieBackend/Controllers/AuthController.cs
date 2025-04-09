@@ -36,7 +36,10 @@ namespace HorrorMovieBackend.Controllers
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
-            return Ok("User registered successfully");
+
+            var token = _authService.GenerateToken(user);
+            var response = new TokenResponse { Token = token };
+            return Ok(response);
         }
 
         [HttpPost("login")]
@@ -52,10 +55,11 @@ namespace HorrorMovieBackend.Controllers
             }
 
             // Generate a JWT for the authenticated user
-            var token = _authService.GenerateToken(user);
+            var token = _authService.GenerateToken(existingUser);
 
-            // Return the token
-            return Ok(new { Token = token });
+            // Return the token wrapped in a TokenResponse
+            var response = new TokenResponse { Token = token };
+            return Ok(response); // Return TokenResponse
         }
     }
 }

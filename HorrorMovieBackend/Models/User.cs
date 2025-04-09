@@ -13,5 +13,7 @@ namespace HorrorMovieBackend.Models
         [Required]
         [StringLength(100)]
         public string Password { get; set; } = string.Empty;
+
+        public List<UserMovie> UserMovies { get; set; } = new();
     }
 }

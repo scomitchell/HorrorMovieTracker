@@ -51,7 +51,7 @@ const MoviesPage = () => {
         movie.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
-        <div>
+        <div class="movies-container">
             <h1>Search Movies</h1>
             <input
                 type="text"
@@ -65,7 +65,8 @@ const MoviesPage = () => {
             <ul>
                 {filteredMovies.map((movie) => (
                     <li key={movie.id}>
-                        <h3>{movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})
+                        <h3>
+                            {movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})
                             <button onClick={() => handleAddToMyList(movie)} style={{ marginLeft: '10px' }}>
                                 Add to My List
                             </button>

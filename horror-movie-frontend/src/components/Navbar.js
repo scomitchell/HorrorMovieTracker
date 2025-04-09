@@ -8,7 +8,7 @@ function Navbar() {
     const { isLoggedIn, logout } = useContext(AuthContext);
 
     return (
-        <nav>
+        <nav class="navbar">
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/movies">Movies</Link></li>

@@ -1,9 +1,9 @@
-div h1 {
+.movies-container h1 {
     margin-left: 20px;
     font-size: 25px
 }
 
-div input {
+.movies-container input {
     margin-left: 15px;
     font-size: 16px;
     background-color: #000000;
@@ -13,17 +13,21 @@ div input {
     padding: 5px 15px;
 }
 
-div input::placeholder {
+.movies-container input::placeholder {
     color: #ff0000;
     opacity: 1;
 }
 
-div ul li button {
+.movies-container ul li {
+    margin-left: -15px;
+}
+
+.movies-container ul li button {
     color: #ff0000;
     background-color: #000000;
     border: 1px solid #ff0000;
 }
 
-div ul li button:hover {
+.movies-container ul li h3 button:hover {
     background-color: #575757;
 }

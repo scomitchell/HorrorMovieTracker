@@ -1,40 +1,43 @@
-nav {
+.navbar {
     display: flex;
     justify-content: flex-start; /* Align links to the left */
     background-color: #000000;
     padding: 15px 15px;
 }
 
-nav ul {
+.navbar ul {
     list-style-type: none; /* Remove default list bullet points */
     margin: 0;
     padding: 0;
     display: flex; /* Arrange the list items horizontally */
 }
 
-nav li {
+.navbar li {
     margin-right: 20px; /* Add space between each link */
 }
 
-nav a {
-    text-decoration: none; /* Remove underlines */
+.navbar a {
+    text-decoration: none; 
     font-size: 20px;
+    font-weight: bold;
     padding: 8px 12px;
     color: #ff0000;
-    font-weight: bold;
 }
 
-nav ul li button {
+.navbar ul li button {
+    color: #ff0000;
+    background-color:#000000;
+    border: #000000;
     font-size: 20px;
     font-weight: bold;
 }
 
-nav a:hover {
+.navbar a:hover {
     background-color: #575757;
     border-radius: 5px; /* Round corners */
 }
 
-nav ul li button:hover {
+.navbar ul li button:hover {
     background-color: #575757;
     border-radius: 5px;
 }

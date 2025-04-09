@@ -13,13 +13,17 @@
     padding: 5px 15px;
 }
 
+.movies-container ul {
+    list-style-type: none;
+}
+
 .movies-container input::placeholder {
     color: #ff0000;
     opacity: 1;
 }
 
 .movies-container ul li {
-    margin-left: -15px;
+    margin-left: -20px;
 }
 
 .movies-container ul li button {

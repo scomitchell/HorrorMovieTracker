@@ -44,7 +44,7 @@ const MyMoviesPage = () => {
     }
 
     return (
-        <div>
+        <div class="my-movies">
             <h1>Your Movies</h1>
             <ul>
                 {movies.map((movie) => (

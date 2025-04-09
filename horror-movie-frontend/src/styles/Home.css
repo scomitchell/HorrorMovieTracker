@@ -3,6 +3,13 @@ body {
     color: #ff0000;
 }
 
-h1 {
-    margin-left: 10px;
+.home h1 {
+    margin-left: 20px;
+}
+
+.home ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    margin-left: -25px;
 }

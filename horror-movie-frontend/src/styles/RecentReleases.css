@@ -1,3 +1,9 @@
-h2 {
-    margin-left: 10px;
+.recent-releases h2 {
+    margin-left: 20px;
+}
+
+.recent-releases ul {
+    margin-left: -15px;
+    list-style-type: none;
+    font-size: 16px;
 }

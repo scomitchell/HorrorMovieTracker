@@ -40,7 +40,7 @@ const RecentReleasesPage = () => {
     if (error) return <p>Error: {error}</p>
 
     return (
-        <div>
+        <div class="recent-releases">
             <h2>Recent Releases (Past Month)</h2>
             {movies.length === 0 ? (
                 <p>No movies released in the past month.</p>

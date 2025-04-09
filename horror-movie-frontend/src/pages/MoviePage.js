@@ -1,9 +1,29 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import "../styles/MoviePage.css"
 
 function MoviePage() {
     let { id } = useParams();
-    return <h1>Movie details for ID: {id}</h1>;
+    const [movie, setMovie] = useState(null);
+
+    useEffect(() => {
+        fetch(`http://localhost:5004/api/movies/${id}`)
+            .then((response) => response.json())
+            .then((data) => setMovie(data))
+            .catch((error) => console.error("Error fetching movie:", error));
+    }, [id]);
+
+    if (!movie) {
+        return <h2>Loading...</h2>
+    }
+
+    return (
+        <div class="individual-movies">
+            <h1>{movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})</h1>
+            <h2>Subgenre: {movie.subgenre}</h2>
+            {movie.imageUrl && <img src={movie.imageUrl} alt={`${movie.title} Poster`} style={{ width: "200px", borderRadius: "8px" }} />}
+        </div>
+    );
 }
 
 export default MoviePage;

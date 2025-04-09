@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import "../styles/Home.css"
 
 const Home = () => {
@@ -48,7 +49,13 @@ const Home = () => {
                 {movies.map((movie) => (
                     <li key={movie.id}>
                         {movie.imageUrl && (
-                            <img src={movie.imageUrl} alt={`${movie.title} Poster`} style={{ width: "200px", borderRadius: "8px" }} />
+                            <Link to={`/movies/${movie.id}`}>
+                                <img
+                                    src={movie.imageUrl}
+                                    alt={`${movie.title} Poster`}
+                                    style={{ width: '200px', borderRadius: '8px' }}
+                                />
+                            </Link>
                         )}
                     </li>
                 ))}

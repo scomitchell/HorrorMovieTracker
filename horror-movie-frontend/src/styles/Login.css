@@ -21,6 +21,10 @@
     max-width: 300px;
 }
 
+.login form input:hover {
+    background-color: #575757;
+}
+
 .login form input::placeholder {
     color: #ff0000;
 }

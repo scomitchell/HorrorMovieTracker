@@ -27,6 +27,10 @@
     padding: 5px 15px;
 }
 
+.movies-container input:hover {
+    background-color: #575757;
+}
+
 .movies-container ul {
     list-style-type: none;
 }

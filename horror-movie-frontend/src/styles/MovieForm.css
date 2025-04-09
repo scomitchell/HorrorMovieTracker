@@ -30,6 +30,10 @@
     max-width: 300px;
 }
 
+.movie-form form input:hover {
+    background-color: #575757;
+}
+
 .movie-form form input::placeholder {
     color: #ff0000;
     opacity: 1;

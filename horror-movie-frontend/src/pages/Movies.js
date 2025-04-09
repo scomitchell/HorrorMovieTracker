@@ -4,6 +4,7 @@ import "../styles/Search.css";
 const MoviesPage = () => {
     const [allMovies, setAllMovies] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+    const [selectedSubgenre, setSelectedSubgenre] = useState("");
     const [message, setMessage] = useState("");
 
     useEffect(() => {
@@ -47,8 +48,11 @@ const MoviesPage = () => {
         }
     };
 
+    const uniqueSubgenres = [...new Set(allMovies.map(movie => movie.subgenre).filter(Boolean))];
+
     const filteredMovies = allMovies.filter((movie) =>
-        movie.title.toLowerCase().includes(searchTerm.toLowerCase()));
+        movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+    && (selectedSubgenre === "" || movie.subgenre === selectedSubgenre));
 
     return (
         <div class="movies-container">
@@ -59,6 +63,19 @@ const MoviesPage = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
+
+            <select
+                value={selectedSubgenre}
+                onChange={(e) => setSelectedSubgenre(e.target.value)}
+                style={{ marginLeft: "10px" }}
+            >
+                <option value="">All Subgenres</option>
+                {uniqueSubgenres.map((sub, index) => (
+                    <option key={index} value={sub}>
+                        {sub}
+                    </option>
+                ))}
+            </select>
 
             {message && <p>{message}</p>}
 

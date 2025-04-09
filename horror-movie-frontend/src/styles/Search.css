@@ -3,6 +3,20 @@
     font-size: 25px
 }
 
+.movies-container select {
+    background-color: #000000;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+}
+
+.movies-container select:hover {
+    background-color: #575757;
+}
+
+.movies-container select option {
+    background-color: #000000;
+}
+
 .movies-container input {
     margin-left: 15px;
     font-size: 16px;

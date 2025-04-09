@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react"
 
-const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US");
-}
-
-
 const MoviesPage = () => {
     const [movies, setMovies] = useState([]); // Initialize as an empty array
     const [loading, setLoading] = useState(true);
@@ -48,7 +42,10 @@ const MoviesPage = () => {
             <ul>
                 {movies.map((movie) => (
                     <li key={movie.id}>
-                        {movie.title} ({formatDate(movie.releaseDate)})
+                        <h3>{movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})</h3>
+                        {movie.imageUrl && (
+                            <img src={movie.imageUrl} alt={`${movie.title} Poster`} style={{ width: "150px", borderRadius: "8px" }} />
+                        )}
                     </li>
                 ))}
             </ul>

@@ -6,6 +6,7 @@ const MovieForm = () => {
     const [title, setTitle] = useState("");
     const [subgenre, setSubgenre] = useState("");
     const [releaseDate, setReleaseDate] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
@@ -24,6 +25,7 @@ const MovieForm = () => {
                     title,
                     subgenre,
                     releaseDate,
+                    imageUrl,
                 }),
             });
 
@@ -58,6 +60,12 @@ const MovieForm = () => {
                 value={releaseDate}
                 onChange={(e) => setReleaseDate(e.target.value)}
                 required
+            />
+            <input
+                type="text"
+                placeholder="Image URL"
+                value={imageUrl}
+                onChange={(e) => setImageUrl(e.target.value)}
             />
             <button type="submit">Add Movie</button>
             {error && <p>{error}</p>}

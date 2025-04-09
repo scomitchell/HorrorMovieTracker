@@ -7,6 +7,7 @@ div input {
     margin-left: 15px;
     font-size: 16px;
     background-color: #000000;
+    color: #ff0000;
     border: 1px solid #ff0000;
     border-radius: 20px;
     padding: 5px 15px;
@@ -15,4 +16,14 @@ div input {
 div input::placeholder {
     color: #ff0000;
     opacity: 1;
+}
+
+div ul li button {
+    color: #ff0000;
+    background-color: #000000;
+    border: 1px solid #ff0000;
+}
+
+div ul li button:hover {
+    background-color: #575757;
 }

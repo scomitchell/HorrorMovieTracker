@@ -34,7 +34,8 @@ namespace HorrorMovieBackend.Controllers
                     um.Movie.Id,
                     um.Movie.Title,
                     um.Movie.Subgenre,
-                    um.Movie.ReleaseDate
+                    um.Movie.ReleaseDate,
+                    um.Movie.ImageUrl,
                 })
                 .ToListAsync();
             
@@ -55,7 +56,8 @@ namespace HorrorMovieBackend.Controllers
                 {
                     Title = movie.Title,
                     Subgenre = movie.Subgenre,
-                    ReleaseDate = movie.ReleaseDate
+                    ReleaseDate = movie.ReleaseDate,
+                    ImageUrl = movie.ImageUrl
                 };
 
                 _context.Movies.Add(existingMovie);

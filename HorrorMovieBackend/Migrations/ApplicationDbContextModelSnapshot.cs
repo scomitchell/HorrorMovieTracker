@@ -23,6 +23,9 @@ namespace HorrorMovieBackend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("TEXT");
 

@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../context/AuthContext";
 
 const Register = () => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState(null);
 	const navigate = useNavigate();
+	const { login, isLoggedIn } = useContext(AuthContext);
 
 	const handleRegister = async (e) => {
 		e.preventDefault();
@@ -23,7 +25,7 @@ const Register = () => {
 			}
 
 			const data = await response.json();
-			localStorage.setItem("token", data.token);
+			login(data.token);
 			navigate("/my-movies");
 		} catch (error) {
 			setError(error.message);

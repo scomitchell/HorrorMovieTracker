@@ -8,6 +8,16 @@
     font-size: 16px;
 }
 
+.recent-releases a {
+    text-decoration: none;
+    color: #ff0000;
+}
+
+.recent-releases ul h3:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .movie-cover {
     width: 150px;
     border-radius: 8px;

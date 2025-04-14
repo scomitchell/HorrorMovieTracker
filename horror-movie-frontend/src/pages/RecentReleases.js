@@ -49,7 +49,9 @@ const RecentReleasesPage = () => {
                 <ul>
                     {movies.map((movie) => (
                         <li key={movie.id}>
-                            <h3>{movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})</h3>
+                            <Link to={`/movies/${movie.id}`}>
+                                 <h3>{movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})</h3>
+                            </Link>
                             {movie.imageUrl && (
                                 <Link to={`/movies/${movie.id}`}>
                                     <img src={movie.imageUrl}

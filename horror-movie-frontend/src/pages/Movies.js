@@ -84,7 +84,9 @@ const MoviesPage = () => {
                 {filteredMovies.map((movie) => (
                     <li key={movie.id}>
                         <h3>
-                            {movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})
+                            <Link to={`/movies/${movie.id}`}>
+                                {movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})
+                            </Link>
                             <button onClick={() => handleAddToMyList(movie)} style={{ marginLeft: '10px' }}>
                                 Add to My List
                             </button>

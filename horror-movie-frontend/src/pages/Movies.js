@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Search.css";
 
 const MoviesPage = () => {
@@ -89,7 +90,16 @@ const MoviesPage = () => {
                             </button>
                         </h3>
                         {movie.imageUrl && (
-                            <img src={movie.imageUrl} alt={`${movie.title} Poster`} style={{ width: "150px", borderRadius: "8px" }} />
+                            <Link to={`/movies/${movie.id}`}>
+                                <img src={movie.imageUrl}
+                                    alt={`${movie.title} Poster`}
+                                    style={{
+                                        width: "150px",
+                                        borderRadius: "8px"
+                                    }}
+                                    className="movie-cover"
+                                />
+                            </Link>
                         )}
                     </li>
                 ))}

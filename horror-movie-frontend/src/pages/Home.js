@@ -45,6 +45,7 @@ const Home = () => {
     return (
         <div class="home">
             <h1>Welcome to the Horror Movie Tracker</h1>
+            <h2>Recently Added</h2>
             <ul>
                 {movies.map((movie) => (
                     <li key={movie.id}>
@@ -59,6 +60,7 @@ const Home = () => {
                                         borderRadius: '8px',
                                         objectFit: 'cover',  // Maintain aspect ratio, cover the area
                                     }}
+                                    className="movie-cover"
                                 />
                             </Link>
                         )}

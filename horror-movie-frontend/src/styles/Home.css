@@ -7,6 +7,10 @@ body {
     margin-left: 20px;
 }
 
+.home h2 {
+    margin-left: 20px;
+}
+
 .home ul {
     list-style-type: none;
     display: flex;

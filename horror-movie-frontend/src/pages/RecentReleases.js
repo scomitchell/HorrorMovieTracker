@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/RecentReleases.css"
 
 const RecentReleasesPage = () => {
@@ -50,7 +51,17 @@ const RecentReleasesPage = () => {
                         <li key={movie.id}>
                             <h3>{movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})</h3>
                             {movie.imageUrl && (
-                                <img src={movie.imageUrl} alt={`${movie.title} Poster`} style={{ width: "150px", borderRadius: "8px" }} />
+                                <Link to={`/movies/${movie.id}`}>
+                                    <img src={movie.imageUrl}
+                                        alt={`${movie.title} Poster`}
+                                        style={{
+                                            width: "150px",
+                                            borderRadius: "8px",
+                                            objectFit: "cover",
+                                        }}
+                                        className = "movie-cover"
+                                    />
+                                </Link>
                             )}
                         </li>
                     ))}

@@ -7,3 +7,16 @@
     list-style-type: none;
     font-size: 16px;
 }
+
+.movie-cover {
+    width: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.movie-cover:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    transform: scale(1.03); /* Slight zoom on hover */
+    cursor: pointer;
+}

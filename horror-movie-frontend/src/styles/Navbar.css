@@ -24,7 +24,7 @@
     color: #ff0000;
 }
 
-.navbar ul li button {
+.navbar ul button {
     color: #ff0000;
     background-color:#000000;
     border: #000000;
@@ -37,7 +37,7 @@
     border-radius: 5px; /* Round corners */
 }
 
-.navbar ul li button:hover {
+.navbar ul button:hover {
     background-color: #575757;
     border-radius: 5px;
 }

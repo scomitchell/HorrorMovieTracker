@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HorrorMovieBackend.Data;
 using HorrorMovieBackend.Models;
-using HorrorMovieBackend.Services;
 
 namespace HorrorMovieBackend.Controllers
 {

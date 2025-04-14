@@ -18,5 +18,7 @@ namespace HorrorMovieBackend.Models
         public List<UserMovie> UserMovies { get; set; } = new();
 
         public string? ImageUrl { get; set; }
+
+        public string? Description { get; set; }
     }
 }

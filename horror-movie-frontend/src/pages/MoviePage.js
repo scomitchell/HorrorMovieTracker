@@ -19,9 +19,13 @@ function MoviePage() {
 
     return (
         <div class="individual-movies">
-            <h1>{movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})</h1>
+            <h1> {movie.title} ({new Date(movie.releaseDate).toLocaleDateString()}) </h1>
             <h2>Subgenre: {movie.subgenre}</h2>
-            {movie.imageUrl && <img src={movie.imageUrl} alt={`${movie.title} Poster`} style={{ width: "200px", borderRadius: "8px" }} />}
+            <div class="description-imageurl">
+                {movie.imageUrl && <img src={movie.imageUrl} alt={`${movie.title} Poster`}
+                    style={{ width: "200px", borderRadius: "8px" }} />}
+                <p>{movie.description}</p>
+            </div>
         </div>
     );
 }

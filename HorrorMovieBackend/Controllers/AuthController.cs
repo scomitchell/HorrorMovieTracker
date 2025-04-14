@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 using HorrorMovieBackend.Services;
 using HorrorMovieBackend.Models;
 using HorrorMovieBackend.Data;

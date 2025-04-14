@@ -2,3 +2,14 @@
     margin-left: 20px;
     color: #ff0000;
 }
+
+.individual-movies .description-imageurl {
+    display: flex;
+}
+
+.individual-movies .description-imageurl p {
+    max-width: 300px;
+    margin-left: 20px;
+    border: 1px solid #ff0000;
+    padding: 10px;
+}

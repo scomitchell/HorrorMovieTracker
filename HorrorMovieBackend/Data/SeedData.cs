@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using HorrorMovieBackend.Models;
 
 namespace HorrorMovieBackend.Data

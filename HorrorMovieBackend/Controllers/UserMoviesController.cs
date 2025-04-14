@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
-using System.Net.WebSockets;
 
 namespace HorrorMovieBackend.Controllers
 {
@@ -36,6 +35,7 @@ namespace HorrorMovieBackend.Controllers
                     um.Movie.Subgenre,
                     um.Movie.ReleaseDate,
                     um.Movie.ImageUrl,
+                    um.Movie.Description,
                 })
                 .ToListAsync();
             
@@ -58,7 +58,8 @@ namespace HorrorMovieBackend.Controllers
                     Title = movie.Title,
                     Subgenre = movie.Subgenre,
                     ReleaseDate = movie.ReleaseDate,
-                    ImageUrl = movie.ImageUrl
+                    ImageUrl = movie.ImageUrl,
+                    Description = movie.Description
                 };
 
                 _context.Movies.Add(existingMovie);

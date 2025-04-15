@@ -1,0 +1,28 @@
+.review-form form {
+    display: flex;
+}
+
+.review-form textarea {
+    background-color: #000000;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+}
+
+.review-form .rating-submit {
+    margin-left: 10px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.review-form select {
+    background-color: #000000;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    margin-bottom: 10px;
+}
+
+.review-form button {
+    background-color: #000000;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import "../styles/Reviews.css"
 
 const ReviewForm = ({ movieId }) => {
     const [content, setContent] = useState("");
@@ -48,18 +49,21 @@ const ReviewForm = ({ movieId }) => {
                     required
                     rows={4}
                 />
-                <select
-                    value={rating}
-                    onChange={(e) => setRating(parseInt(e.target.value))}
-                    required
-                >
-                    {[1, 2, 3, 4, 5].map((n) => (
-                        <option key={n} value={n}>
-                            {n}
-                        </option>
-                    ))}
-                </select>
-                <button type="submit">Submit Review</button>
+                <div className="rating-submit">
+                    <label htmlFor="rating">Rating (1 to 5):</label>
+                    <select
+                        value={rating}
+                        onChange={(e) => setRating(parseInt(e.target.value))}
+                        required
+                    >
+                        {[1, 2, 3, 4, 5].map((n) => (
+                            <option key={n} value={n}>
+                                {n}
+                            </option>
+                        ))}
+                    </select>
+                    <button type="submit">Submit Review</button>
+                </div>
                 {error && <p>{error}</p>}
             </form>
         </div>

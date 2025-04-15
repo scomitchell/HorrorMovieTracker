@@ -13,7 +13,6 @@ function Navbar() {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/movies">Movies</Link></li>
                 <li><Link to="/recentreleases">Recent Releases</Link></li>
-                <li><Link to="/addmovie">Add Movie</Link></li>
 
                 {!isLoggedIn ? (
                     <>
@@ -22,6 +21,7 @@ function Navbar() {
                     </>
                 ) : (
                     <>
+                        <li><Link to="/addmovie">Add Movie</Link></li>
                         <li><Link to="/my-movies">My Movies</Link></li>
                         <button onClick={logout}>Logout</button>
                     </>

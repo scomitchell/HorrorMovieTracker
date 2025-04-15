@@ -18,3 +18,12 @@
 .my-movies ul li h3 button:hover {
     background-color: #575757;
 }
+
+.my-movies ul li h3:hover {
+    text-decoration: underline;
+}
+
+.my-movies a {
+    text-decoration: none;
+    color: #ff0000;
+}

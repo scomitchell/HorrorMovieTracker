@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import ReviewForm from "../components/ReviewForm"
 import "../styles/MoviePage.css"
 
 function MoviePage() {
@@ -26,6 +27,7 @@ function MoviePage() {
                     style={{ width: "200px", borderRadius: "8px" }} />}
                 <p>{movie.description}</p>
             </div>
+            <ReviewForm movieId={movie.id}/>
         </div>
     );
 }

@@ -3,6 +3,7 @@ using System;
 using HorrorMovieBackend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HorrorMovieBackend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250415031824_AddReviewModel")]
+    partial class AddReviewModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.3");
@@ -58,9 +61,6 @@ namespace HorrorMovieBackend.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("MovieId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Rating")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("UserId")

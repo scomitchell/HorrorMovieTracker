@@ -12,7 +12,8 @@ namespace HorrorMovieBackend.Data
         public DbSet<Movie> Movies { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserMovie> UserMovies { get; set; }
-
+        public DbSet<Review> Reviews { get; set; }
+ 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Composite key to prevent duplicate user-movie entries

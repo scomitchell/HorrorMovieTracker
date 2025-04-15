@@ -6,7 +6,7 @@ import "../styles/MoviePage.css"
 function MoviePage() {
     let { id } = useParams();
     const [movie, setMovie] = useState(null);
-    const [reviews, setReviews] = useState(null);
+    const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:5004/api/movies/${id}`)

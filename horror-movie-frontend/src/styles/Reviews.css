@@ -21,8 +21,16 @@
     margin-bottom: 10px;
 }
 
+.review-form select:hover {
+    background-color: #575757;
+}
+
 .review-form button {
     background-color: #000000;
     color: #ff0000;
     border: 1px solid #ff0000;
+}
+
+.review-form button:hover {
+    background-color: #575757;
 }

@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import "../styles/Login.css";
+import React, { useState, useContext } from "react"
+import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../context/AuthContext"
+import "../styles/Login.css"
 
 // Form that allows user to sign in to platform
 const Login = () => {

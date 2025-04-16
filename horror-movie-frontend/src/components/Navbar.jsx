@@ -1,8 +1,8 @@
 // src/components/Navbar.js
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import "../styles/Navbar.css";
-import { AuthContext } from "../context/AuthContext";
+import React, { useContext } from "react"
+import { Link } from "react-router-dom"
+import "../styles/Navbar.css"
+import { AuthContext } from "../context/AuthContext"
 
 // Site navigation bar
 function Navbar() {

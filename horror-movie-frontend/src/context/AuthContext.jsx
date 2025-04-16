@@ -1,5 +1,5 @@
-import React, { createContext, useState, useEffect } from "react";
-import { isTokenValid } from "../utils/tokenUtils";
+import React, { createContext, useState, useEffect } from "react"
+import { isTokenValid } from "../utils/tokenUtils"
 
 export const AuthContext = createContext();
 

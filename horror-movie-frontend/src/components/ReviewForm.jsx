@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "../styles/Reviews.css"
 
+// Form that collects user reviews on a specific movie
 const ReviewForm = ({ movieId }) => {
     const [content, setContent] = useState("");
     const [rating, setRating] = useState(5);

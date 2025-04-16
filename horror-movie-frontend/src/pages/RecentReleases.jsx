@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/RecentReleases.css"
 
+// Displays all movies released within the past year
 const RecentReleasesPage = () => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);

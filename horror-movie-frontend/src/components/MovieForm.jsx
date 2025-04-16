@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "../styles/MovieForm.css"
 
+// Form that allows user to add new movie to database and personal list
 const MovieForm = () => {
     const [title, setTitle] = useState("");
     const [subgenre, setSubgenre] = useState("");

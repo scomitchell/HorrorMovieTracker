@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import "../styles/Home.css"
 
+// Home page
 const Home = () => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);

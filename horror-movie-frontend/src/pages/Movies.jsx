@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Search.css";
 
+// Displays all movies, allows search by title and filter by subgenre
 const MoviesPage = () => {
     const [allMovies, setAllMovies] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");

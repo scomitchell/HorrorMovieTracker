@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import { AuthContext } from "../context/AuthContext";
 
+// Site navigation bar
 function Navbar() {
     const { isLoggedIn, logout } = useContext(AuthContext);
 

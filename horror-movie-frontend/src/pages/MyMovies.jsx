@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import "../styles/MyMovies.css"
 
+// Displays user's personal movie list
 const MyMoviesPage = () => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);

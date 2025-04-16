@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import ReviewForm from "../components/ReviewForm"
 import "../styles/MoviePage.css"
 
+// Displays specific movie details
 function MoviePage() {
     let { id } = useParams();
     const [movie, setMovie] = useState(null);

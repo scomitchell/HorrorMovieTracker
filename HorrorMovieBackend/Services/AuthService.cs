@@ -8,11 +8,10 @@ namespace HorrorMovieBackend.Services
 {
     public class AuthService
     {
-        private readonly IConfiguration _configuration;
 
-        public AuthService(IConfiguration configuration)
+        public AuthService()
         {
-            _configuration = configuration;
+
         }
 
         public string GenerateToken(User user)

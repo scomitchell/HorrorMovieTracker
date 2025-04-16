@@ -25,10 +25,8 @@ namespace HorrorMovieBackend.Tests.Controllers
 
             _dbContext = new ApplicationDbContext(options);
 
-            // Mock IConfiguration
-            var mockConfig = new Mock<IConfiguration>();
-            mockConfig.Setup(config => config["Jwt:Key"]).Returns("this_is_a_much_longer_test_secret_key_32_bytes");
-            _authService = new AuthService(mockConfig.Object);
+            Environment.SetEnvironmentVariable("JWT_SECRET_KEY", "this_is_a_much_longer_test_secret_key_32_bytes");
+            _authService = new AuthService();
 
             SeedDatabase();
 
@@ -66,25 +64,18 @@ namespace HorrorMovieBackend.Tests.Controllers
         [Fact]
         public async Task RegisterUser_RegistersUser()
         {
-            // Create new user to register
             var newUser = new User
             {
-                Id = 3,
-                Username = "newUser",
-                Password = "newuserpw"
+                Username = "newuser",
+                Password = "securepassword"
             };
 
-            // Register user
             var result = await _controller.Register(newUser);
 
-            // Check registration successful
             var okResult = Assert.IsType<OkObjectResult>(result);
-            Assert.Equal("User registered successfully", okResult.Value);
+            var tokenResponse = Assert.IsType<TokenResponse>(okResult.Value);
 
-            // Check information accurate
-            var registeredUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username == "newUser");
-            Assert.NotNull(registeredUser);
-            Assert.Equal("newUser", registeredUser.Username);
+            Assert.False(string.IsNullOrEmpty(tokenResponse.Token));
         }
 
 

@@ -7,17 +7,18 @@ using Xunit;
 using HorrorMovieBackend.Services;
 using HorrorMovieBackend.Models;
 
-namespace HorrorMovieBackend.Tests.Services {
+namespace HorrorMovieBackend.Tests.Services
+{
     public class AuthServiceTests
     {
         private readonly AuthService _authService;
 
         public AuthServiceTests()
         {
-            var mockConfig = new Mock<IConfiguration>();
-            mockConfig.Setup(config => config["Jwt:Key"]).Returns("this_is_a_much_longer_test_secret_key_32_bytes");
+            // Set environment variable for test scope
+            Environment.SetEnvironmentVariable("JWT_SECRET_KEY", "this_is_a_much_longer_test_secret_key_32_bytes");
 
-            _authService = new AuthService(mockConfig.Object);
+            _authService = new AuthService();
         }
 
         [Fact]

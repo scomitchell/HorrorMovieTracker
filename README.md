@@ -1,4 +1,4 @@
-# Horrror Movie Tracker
+# Horror Movie Tracker
 
 **HorrorMovieTracker** is a personalized movie tracking app that allows users to log horror films they've watched, add and read reviews, and discover new movies.
 

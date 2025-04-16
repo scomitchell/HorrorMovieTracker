@@ -10,7 +10,7 @@
 - Shareed movie pool: All movies are stored once in the database and referenced across user lists to avoid duplication.
 
 ## Tech Stack
-Frontend: React + CSS
-Backend: ASP.NET Core (C#)
-Database: SQLite
-Auth: JWT + localStorage
+- Frontend: React + CSS
+- Backend: ASP.NET Core (C#)
+- Database: SQLite
+- Auth: JWT + localStorage

@@ -1,6 +1,6 @@
 # Horror Movie Tracker
 
-**HorrorMovieTracker** is a personalized movie tracking app that allows users to log horror films they've watched, add and read reviews, and discover new movies.
+**HorrorMovieTracker** (https://github.com/scomitchell/HorrorMovieTracker) is a personalized movie tracking app that allows users to log horror films they've watched, add and read reviews, and discover new movies.
 
 ## Features
 - User Authentication: Secure login and registration using JWT authentication

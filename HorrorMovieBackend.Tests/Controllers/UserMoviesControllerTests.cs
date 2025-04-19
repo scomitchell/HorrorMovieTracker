@@ -88,5 +88,28 @@ namespace HorrorMovieBackend.Tests.Controllers
 
             Assert.Single(userMovies);
         }
+
+        [Fact]
+        public async Task AddMovie_AddsTo_UserList()
+        {
+            var movie = await _dbContext.Movies.FindAsync(2);
+            var result = await _controller.AddMovieToUserList(movie);
+            var okResult = Assert.IsType<OkObjectResult>(result);
+            var screamUserMovie = await _dbContext.UserMovies
+                .FirstOrDefaultAsync(um => um.UserId == 1 && um.MovieId == movie.Id);
+
+            Assert.NotNull(screamUserMovie);
+        }
+
+        [Fact]
+        public async Task RemoveMovie_DeletesFrom_UserList()
+        {
+            var result = await _controller.RemoveMovieFromUserList(1);
+            var okResult = Assert.IsType<OkObjectResult>(result);
+            var deletedUserMovie = await _dbContext.UserMovies
+                .FirstOrDefaultAsync(um => um.UserId == 1 && um.MovieId == 1);
+
+            Assert.Null(deletedUserMovie);
+        }
     }
 }

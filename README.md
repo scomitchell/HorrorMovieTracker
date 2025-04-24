@@ -15,3 +15,8 @@
 - Backend: ASP.NET Core (C#)
 - Database: SQLite
 - Auth: JWT + localStorage
+
+## Setup
+- Clone the repository
+- Copy .env.example to .env
+- Run the backend with dotnet run

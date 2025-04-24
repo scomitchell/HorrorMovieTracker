@@ -22,8 +22,8 @@ function Navbar() {
                     </>
                 ) : (
                     <>
-                        <li><Link to="/addmovie">Add Movie</Link></li>
                         <li><Link to="/my-movies">My Movies</Link></li>
+                        <li><Link to="/addmovie">Add Movie</Link></li>
                         <button onClick={logout}>Logout</button>
                     </>
                 )}

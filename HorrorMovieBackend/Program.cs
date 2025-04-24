@@ -1,11 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using dotenv.net;
 using System.Text;
 using HorrorMovieBackend.Data;
 using HorrorMovieBackend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+DotEnv.Load();
 
 // Add CORS support
 builder.Services.AddCors(options =>

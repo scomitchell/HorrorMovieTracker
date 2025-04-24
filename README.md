@@ -8,6 +8,7 @@
 - Add new movies: Registered users can add new movies to the shared catalog and then to their personal list.
 - Frontend search bar: Filter and search through movies instantly from the shared catalog, handled entirely on the frontend.
 - Shared movie pool: All movies are stored once in the database and referenced across user lists to avoid duplication.
+- Reviews: Users can anonymously rate and review movies in the database and read other users' comments.
 
 ## Tech Stack
 - Frontend: React + CSS

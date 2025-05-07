@@ -8,6 +8,7 @@ function MoviePage() {
     let { id } = useParams();
     const [movie, setMovie] = useState(null);
     const [reviews, setReviews] = useState([]);
+    const [averageRating, setAverageRating] = useState(0);
 
     useEffect(() => {
         fetch(`http://localhost:5004/api/movies/${id}`)
@@ -23,6 +24,13 @@ function MoviePage() {
             .catch((error) => console.error("Error fetching reviews:", error));
     }, [id]);
 
+    useEffect(() => {
+        fetch(`http://localhost:5004/api/reviews/movie/${id}/rating`)
+            .then((response) => response.json())
+            .then((data) => setAverageRating(data))
+            .catch((error) => console.error("Error fetching average rating:", error));
+    }, [id]);
+
     if (!movie) {
         return <h2>Loading...</h2>
     }
@@ -31,6 +39,9 @@ function MoviePage() {
         <div class="individual-movies">
             <h1> {movie.title} ({new Date(movie.releaseDate).toLocaleDateString()}) </h1>
             <h2>Subgenre: {movie.subgenre}</h2>
+            {averageRating !== null && (
+                <h3>Average Rating: {averageRating.toFixed(1)} / 5</h3>
+            )}
             <div class="description-imageurl">
                 {movie.imageUrl && <img src={movie.imageUrl} alt={`${movie.title} Poster`}
                     style={{ width: "200px", borderRadius: "8px" }} />}

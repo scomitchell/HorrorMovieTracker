@@ -59,5 +59,22 @@ namespace HorrorMovieBackend.Controllers
 
 			return Ok(reviews);
 		}
+
+		[HttpGet("movie/{movieId}/rating")]
+		public async Task<IActionResult> GetAverageRatingForMovie(int movieId)
+		{
+			var reviews = await _context.Reviews
+				.Where(r => r.MovieId == movieId)
+				.ToListAsync();
+
+			if (!reviews.Any())
+			{
+				return Ok(0);
+			}
+
+			var averageRating = reviews.Average(r => r.Rating);
+
+			return Ok(averageRating);
+        }
 	}
 }

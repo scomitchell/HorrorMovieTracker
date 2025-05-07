@@ -30,6 +30,18 @@ namespace HorrorMovieBackend.Controllers
             return Ok(movies);
         }
 
+        [HttpGet("recent")]
+        public async Task<ActionResult<IEnumerable<Movie>>> GetRecentMovies()
+        {
+            var oneYearAgo = DateTime.UtcNow.AddYears(-1);
+
+            var recentMovies = await _context.Movies
+                .Where(m => m.ReleaseDate >= oneYearAgo)
+                .ToListAsync();
+
+            return Ok(recentMovies);
+        }
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> GetMovie(int id)

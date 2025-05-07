@@ -54,7 +54,7 @@ const MoviesPage = () => {
 
     const filteredMovies = allMovies.filter((movie) =>
         movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-    && (selectedSubgenre === "" || movie.subgenre === selectedSubgenre));
+        && (selectedSubgenre === "" || movie.subgenre === selectedSubgenre));
 
     return (
         <div class="movies-container">

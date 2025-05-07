@@ -11,23 +11,12 @@ const RecentReleasesPage = () => {
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                const response = await fetch("http://localhost:5004/api/movies");
+                const response = await fetch("http://localhost:5004/api/movies/recent/");
                 if (!response.ok) {
                     throw new Error("Failed to fetch movies");
                 }
                 const data = await response.json();
-
-                // Get one year ago
-                const oneYearAgo = new Date();
-                oneYearAgo.setYear(oneYearAgo.getFullYear() - 1);
-
-                // Filter movies
-                const recentMovies = data.filter(movie => {
-                    const releaseDate = new Date(movie.releaseDate);
-                    return releaseDate >= oneYearAgo;
-                });
-
-                setMovies(recentMovies);
+                setMovies(data);
             } catch (error) {
                 setError(error.message);
             } finally {

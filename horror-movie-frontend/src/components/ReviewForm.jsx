@@ -33,7 +33,7 @@ const ReviewForm = ({ movieId }) => {
 
             setContent("");
             setRating(5);
-            navigate(`/movies/${movieId}`);
+            window.location.reload();
         } catch (error) {
             setError(error.message);
         }

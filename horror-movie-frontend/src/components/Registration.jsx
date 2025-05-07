@@ -33,6 +33,10 @@ const Register = () => {
 		}
 	};
 
+	if (isLoggedIn) {
+		return <h1>You are already logged in</h1>;
+	}
+
 	return (
 		<div>
 			<h2>Register</h2>

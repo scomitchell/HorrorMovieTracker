@@ -32,6 +32,7 @@ const UserDashboard = () => {
                 <li>Reviews Written: {summary.reviewCount}</li>
                 <li>Average Rating: {summary.averageRating}</li>
                 <li>Favorite Subgenre: {summary.topSubgenre}</li>
+                <li>Favorite Decade: {summary.topDecade}</li>
             </ul>
         </div>
     );

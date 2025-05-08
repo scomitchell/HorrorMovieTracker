@@ -59,12 +59,22 @@ namespace HorrorMovieBackend.Controllers
                 .Select(g => g.Key) // Select the subgenre
                 .FirstOrDefaultAsync(); // Return the top result or null
 
+            // User's Most Watched Movie Decade
+            var topDecade = await _context.UserMovies
+                .Where(um => um.UserId == userId)
+                .Include(um => um.Movie)
+                .GroupBy(um => um.Movie.ReleaseDate.Year / 10 * 10) // Group by decade
+                .OrderByDescending(g => g.Count()) // Order by count of movies in each decade
+                .Select(g => g.Key) // Select the decade
+                .FirstOrDefaultAsync();
+
             return Ok(new
             {
                 watchedCount,
                 reviewCount,
                 averageRating = Math.Round(averageRating, 2),
-                topSubgenre = topSubgenre ?? "N/A"
+                topSubgenre = topSubgenre ?? "N/A",
+                topDecade = topDecade != 0 ? $"{topDecade}s" : "N/A"
             });
         }
 

@@ -44,20 +44,20 @@ namespace HorrorMovieBackend.Controllers
 
             // Calculate the average rating given by the user
             var ratings = await _context.Reviews
-                .Where(r => r.UserId == userId)
-                .Select(r => r.Rating)
-                .ToListAsync();
+                .Where(r => r.UserId == userId) // Filter reviews to authenticated user
+                .Select(r => r.Rating) // Select the rating value from reviews
+                .ToListAsync(); // Create a list of ratings from user
 
             var averageRating = ratings.Any() ? ratings.Average() : 0;
 
             // Calculate the user's most-watched subgenre
             var topSubgenre = await _context.UserMovies
                 .Where(um => um.UserId == userId)
-                .Include(um => um.Movie)
-                .GroupBy(um => um.Movie.Subgenre)
-                .OrderByDescending(g => g.Count())
-                .Select(g => g.Key)
-                .FirstOrDefaultAsync();
+                .Include(um => um.Movie) // Include related movie details
+                .GroupBy(um => um.Movie.Subgenre) // Group by subgenre
+                .OrderByDescending(g => g.Count()) // Order by count of movies in each subgenre
+                .Select(g => g.Key) // Select the subgenre
+                .FirstOrDefaultAsync(); // Return the top result or null
 
             return Ok(new
             {

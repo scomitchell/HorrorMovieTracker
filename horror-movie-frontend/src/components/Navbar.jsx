@@ -23,6 +23,7 @@ function Navbar() {
                 ) : (
                     <>
                         <li><Link to="/my-movies">My Movies</Link></li>
+                        <li><Link to="/user-dashboard">My Stats</Link></li>
                         <li><Link to="/addmovie">Add Movie</Link></li>
                         <button onClick={logout}>Logout</button>
                     </>

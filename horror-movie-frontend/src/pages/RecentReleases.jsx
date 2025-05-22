@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import "../styles/RecentReleases.css"
+import "../styles/Universal.css"
 
 // Displays all movies released within the past year
 const RecentReleasesPage = () => {
@@ -32,13 +33,14 @@ const RecentReleasesPage = () => {
 
     return (
         <div class="recent-releases">
-            <h2>Recent Releases (Past Year)</h2>
+            <h2 className="page-header">Recent Releases (Past Year)</h2>
+            <hr className="page-divider-nrml" />
             {movies.length === 0 ? (
                 <p>No movies released in the past month.</p>
             ) : (
                 <ul>
                     {movies.map((movie) => (
-                        <li key={movie.id}>
+                        <li key={movie.id} className="mb-3">
                             <Link to={`/movies/${movie.id}`}>
                                  <h3>{movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})</h3>
                             </Link>

@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Form, Button } from "react-bootstrap"
 import "../styles/MovieForm.css"
+import "../styles/Universal.css"
 
 // Form that allows user to add new movie to database and personal list
 const MovieForm = () => {
@@ -45,7 +46,8 @@ const MovieForm = () => {
 
     return (
         <div class="movie-form">
-            <h2>Add a movie to the database</h2>
+            <h2 className="page-header">Add a movie to the database</h2>
+            <hr className="page-divider-nrml" />
             <Form
                 className="movie-bs-form mt-4"
                 onSubmit={handleAddMovie}>

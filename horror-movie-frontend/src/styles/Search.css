@@ -24,7 +24,7 @@
     width: 200px;
 }
 
-.movies-container input:hover {
+.movies-container .search-bar:hover {
     background-color: #575757;
 }
 
@@ -32,7 +32,7 @@
     list-style-type: none;
 }
 
-.movies-container input::placeholder {
+.movies-container .search-bar::placeholder {
     color: #ff0000;
     opacity: 1;
 }

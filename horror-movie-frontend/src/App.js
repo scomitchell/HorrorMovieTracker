@@ -11,6 +11,7 @@ import MovieForm from "./components/MovieForm";
 import MyMovies from "./pages/MyMovies";
 import NotFound from "./pages/NotFound";
 import ReviewForm from "./components/ReviewForm";
+import UserDashboard from "./pages/UserDashboard";
 import { AuthProvider } from "./context/AuthContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -27,7 +28,8 @@ function App() {
                 <Route path="/register" element={<Registration />} />
                 <Route path="/addmovie" element={<MovieForm />} />
                 <Route path="/my-movies" element={<MyMovies />} />
-                <Route path="/add-review" element={<ReviewForm /> } />
+                <Route path="/add-review" element={<ReviewForm />} />
+                <Route path="/user-dashboard" element={<UserDashboard />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </AuthProvider>

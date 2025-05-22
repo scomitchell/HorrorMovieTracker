@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ReviewForm from "../components/ReviewForm"
 import "../styles/MoviePage.css"
+import "../styles/Universal.css"
 
 // Displays specific movie details
 function MoviePage() {
@@ -37,15 +38,15 @@ function MoviePage() {
 
     return (
         <div class="individual-movies">
-            <h1> {movie.title} ({new Date(movie.releaseDate).toLocaleDateString()}) </h1>
-            <h2>Subgenre: {movie.subgenre}</h2>
+            <h2 className="page-header-movie"> {movie.title} ({new Date(movie.releaseDate).toLocaleDateString()}) </h2>
+            <hr className="page-divider-nrml" />
+            <h3 className="movie-subgenre">Subgenre: {movie.subgenre}</h3>
             {averageRating !== null && (
-                <h3>Average Rating: {averageRating.toFixed(1)} / 5</h3>
+                <h4 className="mb-3">Average Rating: {averageRating.toFixed(1)} / 5</h4>
             )}
             <div class="description-imageurl">
-                {movie.imageUrl && <img src={movie.imageUrl} alt={`${movie.title} Poster`}
-                    style={{ width: "200px", borderRadius: "8px" }} />}
-                <p>{movie.description}</p>
+                {movie.imageUrl && <img src={movie.imageUrl} alt={`${movie.title} Poster`}/>}
+                <p className="description-box">{movie.description}</p>
             </div>
             <div className="reviews-section">
                 <h3>Reviews</h3>

@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+    background-color: #000000;
+}
+
+h1 { 
+    color: red;
+}
+
+h2 {
+    color: red;
+}

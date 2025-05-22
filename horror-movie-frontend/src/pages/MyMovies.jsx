@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { Button } from "react-bootstrap"
 import "../styles/MyMovies.css"
+import "../styles/Universal.css"
 
 // Displays user's personal movie list
 const MyMoviesPage = () => {
@@ -68,20 +70,20 @@ const MyMoviesPage = () => {
 
     return (
         <div class="my-movies">
-            <h1>Your Movies</h1>
+            <h2 className="page-header">Your Movies</h2>
+            <hr className="page-divider-nrml"/>
             <ul>
                 {movies.map((movie) => (
                     <li key={movie.id}>
-                        <h3>
-                            <Link to={`/movies/${movie.id}`}>
+                        <h3 className="mb-3">
+                            <Link to={`/movies/${movie.id}`} className="fs-4">
                                 {movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})
                             </Link>
-                            <button
+
+                            <Button
+                                variant="danger"
                                 onClick={() => handleRemoveFromMyList(movie.id)}
-                                className="remove-button"
-                            >
-                                Remove
-                            </button>
+                                className="ms-2 remove-button">Remove</Button>
                         </h3>
                         {movie.imageUrl && (
                             <Link to={`/movies/${movie.id}`}>
@@ -91,7 +93,7 @@ const MyMoviesPage = () => {
                                         width: "150px",
                                         borderRadius: "8px"
                                     }}
-                                    className="movie-cover"
+                                    className="movie-cover mb-3"
                                 />
                             </Link>
                         )}

@@ -44,30 +44,34 @@ const Home = () => {
     }
 
     return (
-        <div class="home">
-            <h1>Welcome to the Horror Movie Tracker</h1>
-            <h2>Recently Added</h2>
-            <ul>
-                {movies.map((movie) => (
-                    <li key={movie.id}>
-                        {movie.imageUrl && (
-                            <Link to={`/movies/${movie.id}`}>
-                                <img
-                                    src={movie.imageUrl}
-                                    alt={`${movie.title} Poster`}
-                                    style={{
-                                        width: '200px',
-                                        height: '300px',  // Ensure fixed height
-                                        borderRadius: '8px',
-                                        objectFit: 'cover',  // Maintain aspect ratio, cover the area
-                                    }}
-                                    className="movie-cover"
-                                />
-                            </Link>
-                        )}
-                    </li>
-                ))}
-            </ul>
+        <div className="home">
+            <h1 className="mb-2 mt-3">Welcome to the Horror Movie Tracker</h1>
+            <h2 className="mb-3">Recently Added</h2>
+
+            {/* Horizontally scrollable movie list */}
+            <div className="overflow-auto">
+                <ul>
+                    {movies.map((movie) => (
+                        <li key={movie.id}>
+                            {movie.imageUrl && (
+                                <Link to={`/movies/${movie.id}`}>
+                                    <img
+                                        src={movie.imageUrl}
+                                        alt={`${movie.title} Poster`}
+                                        style={{
+                                            width: '200px',
+                                            height: '300px',
+                                            borderRadius: '8px',
+                                            objectFit: 'cover',
+                                        }}
+                                        className="movie-cover"
+                                    />
+                                </Link>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 }

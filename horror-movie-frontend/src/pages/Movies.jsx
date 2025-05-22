@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { Form, Button } from "react-bootstrap"
 import "../styles/Search.css"
+import "../styles/Universal.css"
 
 // Displays all movies, allows search by title and filter by subgenre
 const MoviesPage = () => {
@@ -58,39 +60,42 @@ const MoviesPage = () => {
 
     return (
         <div class="movies-container">
-            <h1>Search Movies</h1>
-            <input
-                type="text"
-                placeholder="Search by title"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
+            {message && <p className="ms-3">{message}</p>}
 
-            <select
-                value={selectedSubgenre}
-                onChange={(e) => setSelectedSubgenre(e.target.value)}
-                style={{ marginLeft: "10px" }}
-            >
-                <option value="">All Subgenres</option>
-                {uniqueSubgenres.map((sub, index) => (
-                    <option key={index} value={sub}>
-                        {sub}
-                    </option>
-                ))}
-            </select>
+            <h2 className="page-header">Search Movies</h2>
+            <div className="d-flex">
+            <   Form.Control
+                    className="search-bar"
+                    type="text"
+                    placeholder="Search by title"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
 
-            {message && <p>{message}</p>}
-
+                <Form.Select
+                    className="select-subgenre"
+                    value={selectedSubgenre}
+                    onChange={(e) => setSelectedSubgenre(e.target.value)}
+                >
+                    <option value="">All Subgenres</option>
+                    {uniqueSubgenres.map((sub, index) => (
+                        <option key={index} value={sub}>
+                            {sub}
+                        </option>
+                    ))}
+                </Form.Select>
+            </div>
+            <hr className="page-divider-nrml"/>
             <ul>
                 {filteredMovies.map((movie) => (
-                    <li key={movie.id}>
+                    <li key={movie.id} className="mb-3">
                         <h3>
                             <Link to={`/movies/${movie.id}`}>
                                 {movie.title} ({new Date(movie.releaseDate).toLocaleDateString()})
                             </Link>
-                            <button onClick={() => handleAddToMyList(movie)} style={{ marginLeft: '10px' }}>
+                            <Button className="add-movie-btn" onClick={() => handleAddToMyList(movie)} style={{ marginLeft: '10px' }}>
                                 Add to My List
-                            </button>
+                            </Button>
                         </h3>
                         {movie.imageUrl && (
                             <Link to={`/movies/${movie.id}`}>

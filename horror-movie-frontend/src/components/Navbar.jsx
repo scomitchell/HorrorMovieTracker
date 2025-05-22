@@ -1,6 +1,7 @@
 // src/components/Navbar.js
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
+import { ListGroup, Button } from "react-bootstrap"
 import "../styles/Navbar.css"
 import { AuthContext } from "../context/AuthContext"
 
@@ -9,25 +10,43 @@ function Navbar() {
     const { isLoggedIn, logout } = useContext(AuthContext);
 
     return (
-        <nav class="navbar">
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/movies">Movies</Link></li>
-                <li><Link to="/recentreleases">Recent Releases</Link></li>
+        <nav className="navbar d-none d-md-block">
+            <ListGroup className="navbar-items fs-2 list-group-horizontal">
+                <ListGroup.Item className="list-group-item">
+                    <Link to="/">Home</Link>
+                </ListGroup.Item>
+                <ListGroup.Item className="list-group-item">
+                    <Link to="/movies">Movies</Link>
+                </ListGroup.Item>
+                <ListGroup.Item className="list-group-item">
+                    <Link to="/recentreleases">Recent Releases</Link>
+                </ListGroup.Item>
 
                 {!isLoggedIn ? (
                     <>
-                        <li><Link to="/register">Register</Link></li>
-                        <li><Link to="/login">Login</Link></li>
+                        <ListGroup.Item className="list-group-item">
+                            <Link to="/register">Register</Link>
+                        </ListGroup.Item>
+                        <ListGroup.Item className="list-group-item">
+                            <Link to="/login">Login</Link>
+                        </ListGroup.Item>
                     </>
                 ) : (
                     <>
-                        <li><Link to="/my-movies">My Movies</Link></li>
-                        <li><Link to="/addmovie">Add Movie</Link></li>
-                        <button onClick={logout}>Logout</button>
+                            <ListGroup.Item className="list-group-item">
+                                <Link to="/my-movies">My Movies</Link>
+                            </ListGroup.Item>
+                            <ListGroup.Item className="list-group-item">
+                                <Link to="/addmovie">Add Movie</Link>
+                            </ListGroup.Item>
+                            <ListGroup.Item className="list-group-item">
+                                <Button
+                                    className="logout-button bg-black p-0"
+                                    onClick={logout}>Logout</Button>
+                            </ListGroup.Item>
                     </>
                 )}
-            </ul>
+            </ListGroup>
         </nav>
     );
 }

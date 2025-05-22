@@ -12,6 +12,8 @@ import MyMovies from "./pages/MyMovies";
 import NotFound from "./pages/NotFound";
 import ReviewForm from "./components/ReviewForm";
 import { AuthProvider } from "./context/AuthContext";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
     return (
         <AuthProvider>

@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { Form, Button } from "react-bootstrap"
 import "../styles/MovieForm.css"
 
 // Form that allows user to add new movie to database and personal list
@@ -45,42 +46,47 @@ const MovieForm = () => {
     return (
         <div class="movie-form">
             <h2>Add a movie to the database</h2>
-            <form onSubmit={handleAddMovie}>
-                <input
+            <Form
+                className="movie-bs-form mt-4"
+                onSubmit={handleAddMovie}>
+                <Form.Control
                     type="text"
                     placeholder="title"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
                 />
-                <input
+                <Form.Control
                     type="text"
                     placeholder="subgenre"
                     value={subgenre}
                     onChange={(e) => setSubgenre(e.target.value)}
                     required
                 />
-                <input
+                <Form.Control
                     type="date"
                     value={releaseDate}
                     onChange={(e) => setReleaseDate(e.target.value)}
                     required
                 />
-                <input
+                <Form.Control
                     type="text"
                     placeholder="Image URL"
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
                 />
-                <input
+                <Form.Control
                     type="text"
                     placeholder="Description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
-                <button type="submit">Add Movie</button>
+                <Button
+                    variant="danger"
+                    id="add-movie-btn"
+                    type="submit">Add Movie</Button>
                 {error && <p>{error}</p>}
-            </form>
+            </Form>
         </div>
     );
 };

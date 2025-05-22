@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../context/AuthContext"
+import { Form, Button } from "react-bootstrap"
 import "../styles/Login.css"
 
 // Form that allows user to sign in to platform
@@ -40,24 +41,26 @@ const Login = () => {
 
     return (
         <div class="login">
-            <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type="submit">Login</button>
-            </form>
+            <h2 className="mb-3">Login</h2>
+            <Form onSubmit={handleLogin}>
+                <Form.Group id="hmt-sign-in">
+                    <Form.Control
+                        className="mb-3"
+                        type="text"
+                        placeholder="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required />
+
+                    <Form.Control
+                        type="password"
+                        placeholder="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required />
+                </Form.Group>
+                <Button variant="primary" type="submit">Login</Button>
+            </Form>
             {error && <p>{error}</p>}
         </div>
     );

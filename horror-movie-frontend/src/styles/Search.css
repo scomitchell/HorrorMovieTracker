@@ -1,30 +1,27 @@
-.movies-container h1 {
-    margin-left: 20px;
-    font-size: 25px
-}
-
-.movies-container select {
+.movies-container .select-subgenre {
+    margin-left: 15px;
     background-color: #000000;
     color: #ff0000;
     border: 1px solid #ff0000;
+    width: 200px;
 }
 
-.movies-container select:hover {
+.movies-container .select-subgenre:hover {
     background-color: #575757;
 }
 
-.movies-container select option {
+.movies-container .select-subgenre option {
     background-color: #000000;
 }
 
-.movies-container input {
+.movies-container .search-bar {
     margin-left: 15px;
     font-size: 16px;
     background-color: #000000;
     color: #ff0000;
     border: 1px solid #ff0000;
-    border-radius: 20px;
     padding: 5px 15px;
+    width: 200px;
 }
 
 .movies-container input:hover {
@@ -41,16 +38,16 @@
 }
 
 .movies-container ul li {
-    margin-left: -20px;
+    margin-left: -15px;
 }
 
-.movies-container ul li button {
+.movies-container ul li .add-movie-btn {
     color: #ff0000;
     background-color: #000000;
     border: 1px solid #ff0000;
 }
 
-.movies-container ul li h3 button:hover {
+.movies-container ul li h3 .add-movie-btn:hover {
     background-color: #575757;
 }
 
